@@ -1,0 +1,498 @@
+Analysis & Synthesis report for projeto2
+Fri Sep 08 16:30:10 2023
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. User-Specified and Inferred Latches
+  9. General Register Statistics
+ 10. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 11. Post-Synthesis Netlist Statistics for Top Partition
+ 12. Elapsed Time Per Partition
+ 13. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Fri Sep 08 16:30:10 2023       ;
+; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Revision Name                      ; projeto2                                    ;
+; Top-level Entity Name              ; ULA_LCD                                     ;
+; Family                             ; Cyclone IV E                                ;
+; Total logic elements               ; 47                                          ;
+;     Total combinational functions  ; 47                                          ;
+;     Dedicated logic registers      ; 0                                           ;
+; Total registers                    ; 0                                           ;
+; Total pins                         ; 49                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; EP4CE115F29C7      ;                    ;
+; Top-level entity name                                            ; ULA_LCD            ; projeto2           ;
+; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
++----------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                  ;
++----------------------------------+-----------------+------------------------+-------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                    ; Library ;
++----------------------------------+-----------------+------------------------+-------------------------------------------------+---------+
+; ULA_LCD.v                        ; yes             ; User Verilog HDL File  ; C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v ;         ;
++----------------------------------+-----------------+------------------------+-------------------------------------------------+---------+
+
+
++---------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                   ;
++---------------------------------------------+-----------------+
+; Resource                                    ; Usage           ;
++---------------------------------------------+-----------------+
+; Estimated Total logic elements              ; 47              ;
+;                                             ;                 ;
+; Total combinational functions               ; 47              ;
+; Logic element usage by number of LUT inputs ;                 ;
+;     -- 4 input functions                    ; 17              ;
+;     -- 3 input functions                    ; 23              ;
+;     -- <=2 input functions                  ; 7               ;
+;                                             ;                 ;
+; Logic elements by mode                      ;                 ;
+;     -- normal mode                          ; 47              ;
+;     -- arithmetic mode                      ; 0               ;
+;                                             ;                 ;
+; Total registers                             ; 0               ;
+;     -- Dedicated logic registers            ; 0               ;
+;     -- I/O registers                        ; 0               ;
+;                                             ;                 ;
+; I/O pins                                    ; 49              ;
+;                                             ;                 ;
+; Embedded Multiplier 9-bit elements          ; 0               ;
+;                                             ;                 ;
+; Maximum fan-out node                        ; instructions[1] ;
+; Maximum fan-out                             ; 18              ;
+; Total fan-out                               ; 209             ;
+; Average fan-out                             ; 1.44            ;
++---------------------------------------------+-----------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                      ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
+; |ULA_LCD                   ; 47 (47)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 49   ; 0            ; |ULA_LCD            ; ULA_LCD     ; work         ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++----------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                ;
++-----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal ; Free of Timing Hazards ;
++-----------------------------------------------------+---------------------+------------------------+
+; RS$latch                                            ; WideOr1             ; yes                    ;
+; data[0]$latch                                       ; WideOr1             ; yes                    ;
+; data[1]$latch                                       ; WideOr1             ; yes                    ;
+; data[2]$latch                                       ; WideOr1             ; yes                    ;
+; data[3]$latch                                       ; WideOr1             ; yes                    ;
+; data[4]$latch                                       ; WideOr1             ; yes                    ;
+; data[5]$latch                                       ; WideOr1             ; yes                    ;
+; data[6]$latch                                       ; WideOr1             ; yes                    ;
+; data[7]$latch                                       ; WideOr1             ; yes                    ;
+; instructions[4]                                     ; WideOr1             ; yes                    ;
+; instructions[0]                                     ; WideOr1             ; yes                    ;
+; instructions[1]                                     ; WideOr1             ; yes                    ;
+; instructions[2]                                     ; WideOr1             ; yes                    ;
+; instructions[3]                                     ; WideOr1             ; yes                    ;
+; oper[0]                                             ; Mux16               ; yes                    ;
+; oper[1]                                             ; Mux16               ; yes                    ;
+; oper[2]                                             ; Mux16               ; yes                    ;
+; Number of user-specified and inferred latches = 17  ;                     ;                        ;
++-----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 0     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; 7:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; No         ; |ULA_LCD|Mux5              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 49                          ;
+; cycloneiii_lcell_comb ; 48                          ;
+;     normal            ; 48                          ;
+;         0 data inputs ; 1                           ;
+;         2 data inputs ; 7                           ;
+;         3 data inputs ; 23                          ;
+;         4 data inputs ; 17                          ;
+;                       ;                             ;
+; Max LUT depth         ; 5.00                        ;
+; Average LUT depth     ; 2.79                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:03     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Processing started: Fri Sep 08 16:29:31 2023
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off projeto2 -c projeto2
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file seletor.v
+    Info (12023): Found entity 1: seletor File: C:/Users/natha/Desktop/quartus_folder/seletor.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file calculadora.v
+    Info (12023): Found entity 1: calculadora File: C:/Users/natha/Desktop/quartus_folder/calculadora.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file contador.v
+    Info (12023): Found entity 1: contador File: C:/Users/natha/Desktop/quartus_folder/contador.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file ula_lcd.v
+    Info (12023): Found entity 1: ULA_LCD File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 1
+Critical Warning (10846): Verilog HDL Instantiation warning at seletor.v(22): instance has no name File: C:/Users/natha/Desktop/quartus_folder/seletor.v Line: 22
+Critical Warning (10846): Verilog HDL Instantiation warning at calculadora.v(53): instance has no name File: C:/Users/natha/Desktop/quartus_folder/calculadora.v Line: 53
+Critical Warning (10846): Verilog HDL Instantiation warning at seletor.v(53): instance has no name File: C:/Users/natha/Desktop/quartus_folder/seletor.v Line: 53
+Info (12127): Elaborating entity "ULA_LCD" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at ULA_LCD.v(13): object "a_dezena" assigned a value but never read File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 13
+Warning (10036): Verilog HDL or VHDL warning at ULA_LCD.v(14): object "b_dezena" assigned a value but never read File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 14
+Warning (10036): Verilog HDL or VHDL warning at ULA_LCD.v(15): object "dezena" assigned a value but never read File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 15
+Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(17): truncated value with size 32 to match size of target (1) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 17
+Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(18): truncated value with size 32 to match size of target (1) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 18
+Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(19): truncated value with size 32 to match size of target (1) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 19
+Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(20): truncated value with size 32 to match size of target (1) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 20
+Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(21): truncated value with size 8 to match size of target (1) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 21
+Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(23): truncated value with size 32 to match size of target (1) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 23
+Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(24): truncated value with size 32 to match size of target (1) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 24
+Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(25): truncated value with size 32 to match size of target (1) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 25
+Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(26): truncated value with size 32 to match size of target (1) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 26
+Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(27): truncated value with size 8 to match size of target (1) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 27
+Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(29): truncated value with size 32 to match size of target (1) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 29
+Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(30): truncated value with size 32 to match size of target (1) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 30
+Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(31): truncated value with size 32 to match size of target (1) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 31
+Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(32): truncated value with size 32 to match size of target (1) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 32
+Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(33): truncated value with size 16 to match size of target (1) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 33
+Warning (10855): Verilog HDL warning at ULA_LCD.v(16): initial value for variable a_dez_milhar should be constant File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 16
+Warning (10855): Verilog HDL warning at ULA_LCD.v(16): initial value for variable a_milhar should be constant File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 16
+Warning (10855): Verilog HDL warning at ULA_LCD.v(16): initial value for variable a_centena should be constant File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 16
+Warning (10855): Verilog HDL warning at ULA_LCD.v(16): initial value for variable a_dezena should be constant File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 16
+Warning (10855): Verilog HDL warning at ULA_LCD.v(16): initial value for variable a_unidade should be constant File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 16
+Warning (10855): Verilog HDL warning at ULA_LCD.v(16): initial value for variable b_dez_milhar should be constant File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 16
+Warning (10855): Verilog HDL warning at ULA_LCD.v(16): initial value for variable b_milhar should be constant File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 16
+Warning (10855): Verilog HDL warning at ULA_LCD.v(16): initial value for variable b_centena should be constant File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 16
+Warning (10855): Verilog HDL warning at ULA_LCD.v(16): initial value for variable b_dezena should be constant File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 16
+Warning (10855): Verilog HDL warning at ULA_LCD.v(16): initial value for variable b_unidade should be constant File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 16
+Warning (10855): Verilog HDL warning at ULA_LCD.v(16): initial value for variable dez_milhar should be constant File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 16
+Warning (10855): Verilog HDL warning at ULA_LCD.v(16): initial value for variable milhar should be constant File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 16
+Warning (10855): Verilog HDL warning at ULA_LCD.v(16): initial value for variable centena should be constant File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 16
+Warning (10855): Verilog HDL warning at ULA_LCD.v(16): initial value for variable dezena should be constant File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 16
+Warning (10855): Verilog HDL warning at ULA_LCD.v(16): initial value for variable unidade should be constant File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 16
+Warning (10270): Verilog HDL Case Statement warning at ULA_LCD.v(43): incomplete case statement has no default case item File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 43
+Info (10264): Verilog HDL Case Statement information at ULA_LCD.v(43): all case item expressions in this case statement are onehot File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 43
+Warning (10240): Verilog HDL Always Construct warning at ULA_LCD.v(43): inferring latch(es) for variable "oper", which holds its previous value in one or more paths through the always construct File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 43
+Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(67): truncated value with size 32 to match size of target (6) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 67
+Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(68): truncated value with size 32 to match size of target (6) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 68
+Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(69): truncated value with size 32 to match size of target (6) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 69
+Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(70): truncated value with size 32 to match size of target (6) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 70
+Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(71): truncated value with size 32 to match size of target (6) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 71
+Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(72): truncated value with size 32 to match size of target (6) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 72
+Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(73): truncated value with size 32 to match size of target (6) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 73
+Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(74): truncated value with size 32 to match size of target (6) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 74
+Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(75): truncated value with size 32 to match size of target (6) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 75
+Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(76): truncated value with size 32 to match size of target (6) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 76
+Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(77): truncated value with size 32 to match size of target (6) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 77
+Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(78): truncated value with size 32 to match size of target (6) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 78
+Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(79): truncated value with size 32 to match size of target (6) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 79
+Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(80): truncated value with size 32 to match size of target (6) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 80
+Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(81): truncated value with size 32 to match size of target (6) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 81
+Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(82): truncated value with size 32 to match size of target (6) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 82
+Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(83): truncated value with size 32 to match size of target (6) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 83
+Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(84): truncated value with size 32 to match size of target (6) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 84
+Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(85): truncated value with size 32 to match size of target (6) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 85
+Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(86): truncated value with size 32 to match size of target (6) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 86
+Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(87): truncated value with size 32 to match size of target (6) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 87
+Warning (10270): Verilog HDL Case Statement warning at ULA_LCD.v(66): incomplete case statement has no default case item File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
+Warning (10240): Verilog HDL Always Construct warning at ULA_LCD.v(66): inferring latch(es) for variable "data", which holds its previous value in one or more paths through the always construct File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
+Warning (10240): Verilog HDL Always Construct warning at ULA_LCD.v(66): inferring latch(es) for variable "RS", which holds its previous value in one or more paths through the always construct File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
+Warning (10240): Verilog HDL Always Construct warning at ULA_LCD.v(66): inferring latch(es) for variable "instructions", which holds its previous value in one or more paths through the always construct File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
+Warning (10030): Net "a_dez_milhar" at ULA_LCD.v(13) has no driver or initial value, using a default initial value '0' File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 13
+Warning (10030): Net "a_milhar" at ULA_LCD.v(13) has no driver or initial value, using a default initial value '0' File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 13
+Warning (10030): Net "a_centena" at ULA_LCD.v(13) has no driver or initial value, using a default initial value '0' File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 13
+Warning (10030): Net "a_unidade" at ULA_LCD.v(13) has no driver or initial value, using a default initial value '0' File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 13
+Warning (10030): Net "b_dez_milhar" at ULA_LCD.v(14) has no driver or initial value, using a default initial value '0' File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 14
+Warning (10030): Net "b_milhar" at ULA_LCD.v(14) has no driver or initial value, using a default initial value '0' File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 14
+Warning (10030): Net "b_centena" at ULA_LCD.v(14) has no driver or initial value, using a default initial value '0' File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 14
+Warning (10030): Net "b_unidade" at ULA_LCD.v(14) has no driver or initial value, using a default initial value '0' File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 14
+Warning (10030): Net "dez_milhar" at ULA_LCD.v(15) has no driver or initial value, using a default initial value '0' File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 15
+Warning (10030): Net "milhar" at ULA_LCD.v(15) has no driver or initial value, using a default initial value '0' File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 15
+Warning (10030): Net "centena" at ULA_LCD.v(15) has no driver or initial value, using a default initial value '0' File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 15
+Warning (10030): Net "unidade" at ULA_LCD.v(15) has no driver or initial value, using a default initial value '0' File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 15
+Warning (10034): Output port "EN" at ULA_LCD.v(9) has no driver File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 9
+Warning (10034): Output port "RW" at ULA_LCD.v(11) has no driver File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 11
+Info (10041): Inferred latch for "instructions[0]" at ULA_LCD.v(66) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
+Info (10041): Inferred latch for "instructions[1]" at ULA_LCD.v(66) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
+Info (10041): Inferred latch for "instructions[2]" at ULA_LCD.v(66) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
+Info (10041): Inferred latch for "instructions[3]" at ULA_LCD.v(66) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
+Info (10041): Inferred latch for "instructions[4]" at ULA_LCD.v(66) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
+Info (10041): Inferred latch for "instructions[5]" at ULA_LCD.v(66) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
+Info (10041): Inferred latch for "RS" at ULA_LCD.v(66) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
+Info (10041): Inferred latch for "data[0]" at ULA_LCD.v(66) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
+Info (10041): Inferred latch for "data[1]" at ULA_LCD.v(66) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
+Info (10041): Inferred latch for "data[2]" at ULA_LCD.v(66) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
+Info (10041): Inferred latch for "data[3]" at ULA_LCD.v(66) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
+Info (10041): Inferred latch for "data[4]" at ULA_LCD.v(66) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
+Info (10041): Inferred latch for "data[5]" at ULA_LCD.v(66) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
+Info (10041): Inferred latch for "data[6]" at ULA_LCD.v(66) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
+Info (10041): Inferred latch for "data[7]" at ULA_LCD.v(66) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
+Info (10041): Inferred latch for "oper[0]" at ULA_LCD.v(43) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 43
+Info (10041): Inferred latch for "oper[1]" at ULA_LCD.v(43) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 43
+Info (10041): Inferred latch for "oper[2]" at ULA_LCD.v(43) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 43
+Info (10041): Inferred latch for "oper[3]" at ULA_LCD.v(43) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 43
+Info (10041): Inferred latch for "oper[4]" at ULA_LCD.v(43) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 43
+Info (10041): Inferred latch for "oper[5]" at ULA_LCD.v(43) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 43
+Info (10041): Inferred latch for "oper[6]" at ULA_LCD.v(43) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 43
+Info (10041): Inferred latch for "oper[7]" at ULA_LCD.v(43) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 43
+Warning (13012): Latch RS$latch has unsafe behavior File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructions[4] File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
+Warning (13012): Latch data[0]$latch has unsafe behavior File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructions[3] File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
+Warning (13012): Latch data[1]$latch has unsafe behavior File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructions[3] File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
+Warning (13012): Latch data[2]$latch has unsafe behavior File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructions[3] File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
+Warning (13012): Latch data[3]$latch has unsafe behavior File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructions[3] File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
+Warning (13012): Latch data[4]$latch has unsafe behavior File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructions[3] File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
+Warning (13012): Latch data[5]$latch has unsafe behavior File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructions[4] File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
+Warning (13012): Latch data[6]$latch has unsafe behavior File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructions[3] File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
+Warning (13012): Latch data[7]$latch has unsafe behavior File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructions[4] File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
+Warning (13012): Latch instructions[4] has unsafe behavior File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructions[4] File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
+Warning (13012): Latch instructions[1] has unsafe behavior File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructions[1] File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
+Warning (13012): Latch instructions[2] has unsafe behavior File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructions[2] File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
+Warning (13012): Latch instructions[3] has unsafe behavior File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructions[0] File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
+Warning (13012): Latch oper[0] has unsafe behavior File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 43
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal sel[0] File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 8
+Warning (13012): Latch oper[1] has unsafe behavior File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 43
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal sel[1] File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 8
+Warning (13012): Latch oper[2] has unsafe behavior File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 43
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal sel[1] File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 8
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "EN" is stuck at GND File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 9
+    Warning (13410): Pin "RW" is stuck at GND File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 11
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 32 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "saida[0]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 2
+    Warning (15610): No output dependent on input pin "saida[1]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 2
+    Warning (15610): No output dependent on input pin "saida[2]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 2
+    Warning (15610): No output dependent on input pin "saida[3]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 2
+    Warning (15610): No output dependent on input pin "saida[4]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 2
+    Warning (15610): No output dependent on input pin "saida[5]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 2
+    Warning (15610): No output dependent on input pin "saida[6]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 2
+    Warning (15610): No output dependent on input pin "saida[7]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 2
+    Warning (15610): No output dependent on input pin "saida[8]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 2
+    Warning (15610): No output dependent on input pin "saida[9]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 2
+    Warning (15610): No output dependent on input pin "saida[10]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 2
+    Warning (15610): No output dependent on input pin "saida[11]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 2
+    Warning (15610): No output dependent on input pin "saida[12]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 2
+    Warning (15610): No output dependent on input pin "saida[13]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 2
+    Warning (15610): No output dependent on input pin "saida[14]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 2
+    Warning (15610): No output dependent on input pin "saida[15]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 2
+    Warning (15610): No output dependent on input pin "a[0]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 4
+    Warning (15610): No output dependent on input pin "a[1]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 4
+    Warning (15610): No output dependent on input pin "a[2]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 4
+    Warning (15610): No output dependent on input pin "a[3]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 4
+    Warning (15610): No output dependent on input pin "a[4]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 4
+    Warning (15610): No output dependent on input pin "a[5]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 4
+    Warning (15610): No output dependent on input pin "a[6]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 4
+    Warning (15610): No output dependent on input pin "a[7]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 4
+    Warning (15610): No output dependent on input pin "b[0]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 6
+    Warning (15610): No output dependent on input pin "b[1]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 6
+    Warning (15610): No output dependent on input pin "b[2]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 6
+    Warning (15610): No output dependent on input pin "b[3]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 6
+    Warning (15610): No output dependent on input pin "b[4]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 6
+    Warning (15610): No output dependent on input pin "b[5]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 6
+    Warning (15610): No output dependent on input pin "b[6]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 6
+    Warning (15610): No output dependent on input pin "b[7]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 6
+Info (21057): Implemented 96 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 38 input pins
+    Info (21059): Implemented 11 output pins
+    Info (21061): Implemented 47 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 146 warnings
+    Info: Peak virtual memory: 4753 megabytes
+    Info: Processing ended: Fri Sep 08 16:30:10 2023
+    Info: Elapsed time: 00:00:39
+    Info: Total CPU time (on all processors): 00:00:31
+
+

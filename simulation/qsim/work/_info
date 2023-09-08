@@ -1,0 +1,195 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/Users/mhms/Documents/quartus_folder/simulation/qsim
+vcalculadora
+Z1 !s110 1693850022
+!i10b 1
+!s100 0DHO0Gd97mf7h9=XkD>3X2
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IiEFZ9;ZQ35fVzBe4A3Ab53
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1693850021
+Z4 8projeto2.vo
+Z5 Fprojeto2.vo
+!i122 8
+Z6 L0 32 1904
+Z7 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z8 !s108 1693850022.000000
+Z9 !s107 projeto2.vo|
+Z10 !s90 -work|work|projeto2.vo|
+!i113 1
+Z11 o-work work
+Z12 tCvgOpt 0
+vcalculadora_vlg_vec_tst
+R1
+!i10b 1
+!s100 :U_dZiY??_YLbTl4SaLVo1
+R2
+I4o^1j>BoA1iiYI2OWWeFN0
+R3
+R0
+w1693850017
+Z13 8Waveform.vwf.vt
+Z14 FWaveform.vwf.vt
+!i122 9
+L0 30 4030
+R7
+r1
+!s85 0
+31
+R8
+Z15 !s107 Waveform.vwf.vt|
+Z16 !s90 -work|work|Waveform.vwf.vt|
+!i113 1
+R11
+R12
+vhelloworld
+Z17 !s110 1694197891
+!i10b 1
+!s100 FPBj]1;nzYdV?`B<H07e=2
+R2
+IR0DMAEGGW82[ClS1o^zfG2
+R3
+Z18 dD:/Users/mhms/Downloads/quartus_folder-20230908T150054Z-001/quartus_folder/simulation/qsim
+w1694197890
+R4
+R5
+!i122 32
+L0 32 2550
+R7
+r1
+!s85 0
+31
+Z19 !s108 1694197891.000000
+R9
+R10
+!i113 1
+R11
+R12
+vhelloworld_vlg_vec_tst
+R17
+!i10b 1
+!s100 lghDB5l;I1X_TN8fzJeRF3
+R2
+ImQ`Rc4ge^LX;I^K^8KH[80
+R3
+R18
+w1694197887
+8Waveform2.vwf.vt
+FWaveform2.vwf.vt
+!i122 33
+L0 30 32
+R7
+r1
+!s85 0
+31
+R19
+!s107 Waveform2.vwf.vt|
+!s90 -work|work|Waveform2.vwf.vt|
+!i113 1
+R11
+R12
+vprojeto2
+Z20 !s110 1693836020
+!i10b 1
+!s100 0c3KeRSVdzXhG9^Mi<>6a2
+R2
+IQA6NifaeY^G];kf?EfhPc1
+R3
+R0
+w1693836019
+R4
+R5
+!i122 2
+R6
+R7
+r1
+!s85 0
+31
+Z21 !s108 1693836020.000000
+R9
+R10
+!i113 1
+R11
+R12
+vprojeto2_vlg_vec_tst
+R20
+!i10b 1
+!s100 :LkF=2j>WFHGCLm82H6L^2
+R2
+Ia2KP6=NennjojgfLSAgj32
+R3
+R0
+w1693836015
+R13
+R14
+!i122 3
+L0 30 4127
+R7
+r1
+!s85 0
+31
+R21
+R15
+R16
+!i113 1
+R11
+R12
+vseletor
+Z22 !s110 1694185845
+!i10b 1
+!s100 V9K_4ilhhVmWZ^4@zQCA51
+R2
+I57_V:eMH2QnNFLMF[44B72
+R3
+R18
+w1694185844
+R4
+R5
+!i122 28
+L0 32 4436
+R7
+r1
+!s85 0
+31
+Z23 !s108 1694185845.000000
+R9
+R10
+!i113 1
+R11
+R12
+vseletor_vlg_vec_tst
+R22
+!i10b 1
+!s100 LB4Gm=MAnhLJ>LPZk^HHI1
+R2
+IkK<<o8C9744E;mnHa@oZP2
+R3
+R18
+w1694185841
+R13
+R14
+!i122 29
+L0 30 227
+R7
+r1
+!s85 0
+31
+R23
+R15
+R16
+!i113 1
+R11
+R12

@@ -1,0 +1,257 @@
+// Copyright (C) 2020  Intel Corporation. All rights reserved.
+// Your use of Intel Corporation's design tools, logic functions 
+// and other software and tools, and any partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Intel Program License 
+// Subscription Agreement, the Intel Quartus Prime License Agreement,
+// the Intel FPGA IP License Agreement, or other applicable license
+// agreement, including, without limitation, that your use is for
+// the sole purpose of programming logic devices manufactured by
+// Intel and sold by Intel or its authorized distributors.  Please
+// refer to the applicable agreement for further details, at
+// https://fpgasoftware.intel.com/eula.
+
+// *****************************************************************************
+// This file contains a Verilog test bench with test vectors .The test vectors  
+// are exported from a vector file in the Quartus Waveform Editor and apply to  
+// the top level entity of the current Quartus project .The user can use this   
+// testbench to simulate his design using a third-party simulation tool .       
+// *****************************************************************************
+// Generated on "09/08/2023 12:10:41"
+                                                                                
+// Verilog Test Bench (with test vectors) for design :                          seletor
+// 
+// Simulation tool : 3rd Party
+// 
+
+`timescale 1 ps/ 1 ps
+module seletor_vlg_vec_tst();
+// constants                                           
+// general purpose registers
+reg [7:0] a;
+reg [7:0] b;
+reg botao_1;
+reg botao_2;
+reg botao_3;
+reg botao_4;
+reg clk;
+reg sinal_a;
+reg sinal_b;
+// wires                                               
+wire EN;
+wire RS;
+wire RW;
+wire [7:0] data;
+wire [15:0] saida;
+wire sinal_saida;
+
+// assign statements (if any)                          
+seletor i1 (
+// port map - connection between master ports and signals/registers   
+	.EN(EN),
+	.RS(RS),
+	.RW(RW),
+	.a(a),
+	.b(b),
+	.botao_1(botao_1),
+	.botao_2(botao_2),
+	.botao_3(botao_3),
+	.botao_4(botao_4),
+	.clk(clk),
+	.data(data),
+	.saida(saida),
+	.sinal_a(sinal_a),
+	.sinal_b(sinal_b),
+	.sinal_saida(sinal_saida)
+);
+initial 
+begin 
+#1000000 $finish;
+end 
+// a[ 7 ]
+initial
+begin
+	a[7] = 1'b1;
+	a[7] = #400000 1'b0;
+	a[7] = #400000 1'b1;
+end 
+// a[ 6 ]
+initial
+begin
+	a[6] = 1'b1;
+	a[6] = #400000 1'b0;
+	a[6] = #400000 1'b1;
+end 
+// a[ 5 ]
+initial
+begin
+	a[5] = 1'b1;
+	a[5] = #200000 1'b0;
+	a[5] = #200000 1'b1;
+	a[5] = #400000 1'b0;
+end 
+// a[ 4 ]
+initial
+begin
+	a[4] = 1'b1;
+	a[4] = #200000 1'b0;
+	a[4] = #400000 1'b1;
+end 
+// a[ 3 ]
+initial
+begin
+	a[3] = 1'b0;
+	a[3] = #400000 1'b1;
+	a[3] = #400000 1'b0;
+end 
+// a[ 2 ]
+initial
+begin
+	a[2] = 1'b1;
+	a[2] = #200000 1'b0;
+end 
+// a[ 1 ]
+initial
+begin
+	a[1] = 1'b0;
+	a[1] = #200000 1'b1;
+	a[1] = #600000 1'b0;
+end 
+// a[ 0 ]
+initial
+begin
+	a[0] = 1'b1;
+end 
+// b[ 7 ]
+initial
+begin
+	b[7] = 1'b0;
+	b[7] = #200000 1'b1;
+	b[7] = #200000 1'b0;
+end 
+// b[ 6 ]
+initial
+begin
+	b[6] = 1'b0;
+	b[6] = #200000 1'b1;
+	b[6] = #400000 1'b0;
+	b[6] = #200000 1'b1;
+end 
+// b[ 5 ]
+initial
+begin
+	b[5] = 1'b1;
+	b[5] = #200000 1'b0;
+	b[5] = #200000 1'b1;
+	b[5] = #400000 1'b0;
+end 
+// b[ 4 ]
+initial
+begin
+	b[4] = 1'b1;
+	b[4] = #200000 1'b0;
+	b[4] = #400000 1'b1;
+	b[4] = #200000 1'b0;
+end 
+// b[ 3 ]
+initial
+begin
+	b[3] = 1'b1;
+	b[3] = #200000 1'b0;
+	b[3] = #200000 1'b1;
+	b[3] = #200000 1'b0;
+	b[3] = #200000 1'b1;
+end 
+// b[ 2 ]
+initial
+begin
+	b[2] = 1'b1;
+	b[2] = #200000 1'b0;
+	b[2] = #600000 1'b1;
+end 
+// b[ 1 ]
+initial
+begin
+	b[1] = 1'b0;
+	b[1] = #200000 1'b1;
+	b[1] = #600000 1'b0;
+end 
+// b[ 0 ]
+initial
+begin
+	b[0] = 1'b0;
+	b[0] = #400000 1'b1;
+	b[0] = #200000 1'b0;
+end 
+
+// botao_1
+initial
+begin
+	botao_1 = 1'b1;
+	botao_1 = #10000 1'b0;
+	botao_1 = #20000 1'b1;
+	botao_1 = #170000 1'b0;
+	botao_1 = #20000 1'b1;
+end 
+
+// botao_2
+initial
+begin
+	botao_2 = 1'b1;
+	botao_2 = #60000 1'b0;
+	botao_2 = #20000 1'b1;
+	botao_2 = #180000 1'b0;
+	botao_2 = #20000 1'b1;
+end 
+
+// botao_3
+initial
+begin
+	botao_3 = 1'b1;
+	botao_3 = #100000 1'b0;
+	botao_3 = #20000 1'b1;
+	botao_3 = #190000 1'b0;
+	botao_3 = #20000 1'b1;
+end 
+
+// botao_4
+initial
+begin
+	botao_4 = 1'b1;
+	botao_4 = #150000 1'b0;
+	botao_4 = #20000 1'b1;
+end 
+
+// clk
+always
+begin
+	clk = 1'b0;
+	clk = #5000 1'b1;
+	#5000;
+end 
+
+// sinal_a
+initial
+begin
+	sinal_a = 1'b1;
+	sinal_a = #300000 1'b0;
+	sinal_a = #100000 1'b1;
+	sinal_a = #100000 1'b0;
+	sinal_a = #100000 1'b1;
+end 
+
+// sinal_b
+initial
+begin
+	sinal_b = 1'b0;
+	sinal_b = #100000 1'b1;
+	sinal_b = #100000 1'b0;
+	sinal_b = #100000 1'b1;
+	sinal_b = #100000 1'b0;
+	sinal_b = #200000 1'b1;
+	sinal_b = #300000 1'b0;
+end 
+endmodule
+

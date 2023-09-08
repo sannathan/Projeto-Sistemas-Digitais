@@ -1,0 +1,47 @@
+//abordagem por fluxo de dados
+module projeto2(
+    input [7:0] a,
+	 input [2:0] sel,
+	 input [7:0] b,
+	 input sinal_a, 
+	 input sinal_b,     
+	 output reg [16:0] saida
+);
+  reg sinal_saida;
+  initial begin
+      saida = 0;
+		sinal_saida = 0;
+  end
+  always @(*) begin
+	 case (sel)
+	     3'b100:begin   
+		      sinal_saida = a > b? (sinal_a) : (sinal_b);
+		      if((sinal_a & sinal_b) | ((~sinal_a) & (~sinal_b)))begin 
+				    saida = {sinal_saida,(a + b)};
+				end
+				else begin
+					 if(a > b)
+					     saida = {sinal_saida,(a - b)};
+					 else 
+					     saida = {sinal_saida,(b - a)};
+		      end
+		  end
+		  3'b010:begin
+		      sinal_saida = a > b? (sinal_a) : (~sinal_b);
+		      if((sinal_a & sinal_b) | (~sinal_a & ~sinal_b))begin
+				    saida = a>b? {sinal_saida,(a - b)}: {sinal_saida, (b - a)};
+				end
+				else begin
+				     saida = {sinal_saida, (a + b)};
+		      end	
+			end
+		    3'b001: begin
+			     if((sinal_a & sinal_b) | (~sinal_a & ~sinal_b)) sinal_saida = 0;
+				  else sinal_saida = 1;
+		        saida = {sinal_saida,(a * b)};
+			 end
+		    default:
+		      saida = 0;
+	  endcase
+	end
+endmodule 

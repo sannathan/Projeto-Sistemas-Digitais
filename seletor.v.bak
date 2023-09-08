@@ -1,0 +1,45 @@
+module seletor(
+    input [7:0] a, 
+	 input [7:0] b,
+    input sinal_a, 
+	 input sinal_b,
+    input [2:0] sel,
+    input clock,
+    output [8:0] resposta
+);
+    reg [2:0] cache;          //registrador pra armazenar a memória da operação anterior
+    initial: begin
+        sel = 0;
+        cache = 0;
+    end
+    always(negedge sel): begin
+    case (sel): begin
+        3'b100:begin
+            cache = sel;
+            sel = 0;
+            
+        end
+        3'b010:begin
+            cache = sel;
+            sel = 0;
+        end
+        3'b001:begin
+            cache = sel;
+            sel = 0;
+        end
+        default:begin
+            cache 0;
+            sel = 0;
+        end
+    endcase
+    //chamando a função
+    calculadora(       
+			 .a(a),           
+			 .sel(cache),
+			 .b(b),
+			 .sinal_a(sinal_a), 
+			 .sinal_b(sinal_b),     
+			 .saida(resposta)
+       );
+    end
+endmodule
