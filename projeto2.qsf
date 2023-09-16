@@ -39,7 +39,7 @@
 
 set_global_assignment -name FAMILY "Cyclone IV E"
 set_global_assignment -name DEVICE EP4CE115F29C7
-set_global_assignment -name TOP_LEVEL_ENTITY ULA_LCD
+set_global_assignment -name TOP_LEVEL_ENTITY helloworld
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 20.1.1
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "12:19:27  SEPTEMBER 01, 2023"
 set_global_assignment -name LAST_QUARTUS_VERSION "20.1.1 Lite Edition"
@@ -56,27 +56,25 @@ set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_signal_integrity
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_boundary_scan
 set_location_assignment PIN_AC25 -to sinal_b
-set_location_assignment PIN_AD26 -to b[1]
-set_location_assignment PIN_AB26 -to b[0]
-set_location_assignment PIN_AC26 -to b[2]
-set_location_assignment PIN_AD27 -to b[4]
-set_location_assignment PIN_AC28 -to b[6]
+set_location_assignment PIN_AC28 -to b[1]
+set_location_assignment PIN_AB28 -to b[0]
+set_location_assignment PIN_AC27 -to b[2]
+set_location_assignment PIN_AB27 -to b[4]
+set_location_assignment PIN_AD26 -to b[6]
 set_global_assignment -name VERILOG_FILE seletor.v
-set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform.vwf
 set_global_assignment -name VERILOG_FILE calculadora.v
-set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform1.vwf
-set_location_assignment PIN_Y22 -to a[0]
+set_location_assignment PIN_AB25 -to a[0]
 set_location_assignment PIN_Y23 -to sinal_a
-set_location_assignment PIN_AA22 -to a[1]
-set_location_assignment PIN_AA23 -to a[2]
-set_location_assignment PIN_AA24 -to a[3]
-set_location_assignment PIN_AB23 -to a[4]
-set_location_assignment PIN_AB24 -to a[5]
-set_location_assignment PIN_AC24 -to a[6]
-set_location_assignment PIN_AB25 -to a[7]
-set_location_assignment PIN_AB27 -to b[3]
-set_location_assignment PIN_AC27 -to b[5]
-set_location_assignment PIN_AB28 -to b[7]
+set_location_assignment PIN_AC24 -to a[1]
+set_location_assignment PIN_AB24 -to a[2]
+set_location_assignment PIN_AB23 -to a[3]
+set_location_assignment PIN_AA24 -to a[4]
+set_location_assignment PIN_AA23 -to a[5]
+set_location_assignment PIN_AA22 -to a[6]
+set_location_assignment PIN_Y24 -to a[7]
+set_location_assignment PIN_AD27 -to b[3]
+set_location_assignment PIN_AC26 -to b[5]
+set_location_assignment PIN_AB26 -to b[7]
 set_location_assignment PIN_R24 -to botao_1
 set_location_assignment PIN_N21 -to botao_2
 set_location_assignment PIN_M21 -to botao_3
@@ -102,7 +100,6 @@ set_location_assignment PIN_G16 -to sinal_saida
 set_global_assignment -name VERILOG_FILE contador.v
 set_global_assignment -name VERILOG_FILE ULA_LCD.v
 set_location_assignment PIN_AG14 -to clk
-set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform2.vwf
 set_location_assignment PIN_M5 -to data[7]
 set_location_assignment PIN_M3 -to data[6]
 set_location_assignment PIN_K2 -to data[5]
@@ -114,6 +111,8 @@ set_location_assignment PIN_L3 -to data[0]
 set_location_assignment PIN_L4 -to EN
 set_location_assignment PIN_M1 -to RW
 set_location_assignment PIN_M2 -to RS
+set_global_assignment -name VERILOG_FILE principal.v
+set_global_assignment -name VERILOG_FILE helloworld.v
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top

@@ -1,0 +1,5 @@
+
+State Machine - |projeto|state
+Name state.WRITE 
+state.WAIT 0 
+state.WRITE 1 

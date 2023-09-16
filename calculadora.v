@@ -50,5 +50,5 @@ module calculadora(a, b, sinal_a, sinal_b, sel, saida, sinal_saida, EN, RS, RW, 
 		  endcase
 		end
 		
-		ULA_LCD(.saida(saida), .sinal_saida(sinal_saida), .a(a), .b(b), .sinal_a(sinal_a), .sinal_b(sinal_b), .sel(sel), .EN(EN), .RS(RS), .RW(RW));
+		//ULA_LCD(.saida(saida), .sinal_saida(sinal_saida), .a(a), .b(b), .sinal_a(sinal_a), .sinal_b(sinal_b), .sel(sel), .EN(EN), .RS(RS), .RW(RW));
 endmodule 

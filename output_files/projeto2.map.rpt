@@ -1,5 +1,5 @@
 Analysis & Synthesis report for projeto2
-Fri Sep 08 16:30:10 2023
+Sun Sep 10 16:36:05 2023
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -13,12 +13,37 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. User-Specified and Inferred Latches
-  9. General Register Statistics
- 10. Multiplexer Restructuring Statistics (Restructuring Performed)
- 11. Post-Synthesis Netlist Statistics for Top Partition
- 12. Elapsed Time Per Partition
- 13. Analysis & Synthesis Messages
+  8. Analysis & Synthesis DSP Block Usage Summary
+  9. State Machine - |helloworld|state
+ 10. Registers Removed During Synthesis
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for User Entity Instance: Top-level Entity: |helloworld
+ 15. Parameter Settings for Inferred Entity Instance: lpm_divide:Div0
+ 16. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0
+ 17. Parameter Settings for Inferred Entity Instance: lpm_divide:Div1
+ 18. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod1
+ 19. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod2
+ 20. Parameter Settings for Inferred Entity Instance: lpm_mult:Mult0
+ 21. Parameter Settings for Inferred Entity Instance: lpm_divide:Div4
+ 22. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod6
+ 23. Parameter Settings for Inferred Entity Instance: lpm_divide:Div5
+ 24. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod7
+ 25. Parameter Settings for Inferred Entity Instance: lpm_divide:Div6
+ 26. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod8
+ 27. Parameter Settings for Inferred Entity Instance: lpm_divide:Div7
+ 28. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod9
+ 29. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod10
+ 30. Parameter Settings for Inferred Entity Instance: lpm_divide:Div2
+ 31. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod3
+ 32. Parameter Settings for Inferred Entity Instance: lpm_divide:Div3
+ 33. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod4
+ 34. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod5
+ 35. lpm_mult Parameter Settings by Entity Instance
+ 36. Post-Synthesis Netlist Statistics for Top Partition
+ 37. Elapsed Time Per Partition
+ 38. Analysis & Synthesis Messages
 
 
 
@@ -45,19 +70,19 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Sep 08 16:30:10 2023       ;
+; Analysis & Synthesis Status        ; Successful - Sun Sep 10 16:36:05 2023       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; projeto2                                    ;
-; Top-level Entity Name              ; ULA_LCD                                     ;
+; Top-level Entity Name              ; helloworld                                  ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 47                                          ;
-;     Total combinational functions  ; 47                                          ;
-;     Dedicated logic registers      ; 0                                           ;
-; Total registers                    ; 0                                           ;
-; Total pins                         ; 49                                          ;
+; Total logic elements               ; 1,715                                       ;
+;     Total combinational functions  ; 1,715                                       ;
+;     Dedicated logic registers      ; 59                                          ;
+; Total registers                    ; 59                                          ;
+; Total pins                         ; 35                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
-; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 1                                           ;
 ; Total PLLs                         ; 0                                           ;
 +------------------------------------+---------------------------------------------+
 
@@ -68,7 +93,7 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                           ; EP4CE115F29C7      ;                    ;
-; Top-level entity name                                            ; ULA_LCD            ; projeto2           ;
+; Top-level entity name                                            ; helloworld         ; projeto2           ;
 ; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
 ; Use smart compilation                                            ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
@@ -153,94 +178,211 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 4           ;
-; Maximum allowed            ; 2           ;
+; Number detected on machine ; 16          ;
+; Maximum allowed            ; 16          ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 2           ;
+; Maximum used               ; 16          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
 ;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
+;     Processor 5            ;   0.0%      ;
+;     Processor 6            ;   0.0%      ;
+;     Processor 7            ;   0.0%      ;
+;     Processor 8            ;   0.0%      ;
+;     Processors 9-16        ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                  ;
-+----------------------------------+-----------------+------------------------+-------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                    ; Library ;
-+----------------------------------+-----------------+------------------------+-------------------------------------------------+---------+
-; ULA_LCD.v                        ; yes             ; User Verilog HDL File  ; C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v ;         ;
-+----------------------------------+-----------------+------------------------+-------------------------------------------------+---------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                              ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                          ; Library ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------------------------+---------+
+; helloworld.v                     ; yes             ; User Verilog HDL File        ; D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/helloworld.v               ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_divide.tdf                                 ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/abs_divider.inc                                ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/sign_div_unsign.inc                            ;         ;
+; aglobal201.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/aglobal201.inc                                 ;         ;
+; db/lpm_divide_mhm.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/lpm_divide_mhm.tdf      ;         ;
+; db/sign_div_unsign_ekh.tdf       ; yes             ; Auto-Generated Megafunction  ; D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/sign_div_unsign_ekh.tdf ;         ;
+; db/alt_u_div_g4f.tdf             ; yes             ; Auto-Generated Megafunction  ; D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/alt_u_div_g4f.tdf       ;         ;
+; db/add_sub_7pc.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/add_sub_7pc.tdf         ;         ;
+; db/add_sub_8pc.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/add_sub_8pc.tdf         ;         ;
+; db/lpm_divide_m9m.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/lpm_divide_m9m.tdf      ;         ;
+; db/sign_div_unsign_bkh.tdf       ; yes             ; Auto-Generated Megafunction  ; D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/sign_div_unsign_bkh.tdf ;         ;
+; db/alt_u_div_a4f.tdf             ; yes             ; Auto-Generated Megafunction  ; D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/alt_u_div_a4f.tdf       ;         ;
+; db/lpm_divide_jhm.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/lpm_divide_jhm.tdf      ;         ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_mult.tdf                                   ;         ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_add_sub.inc                                ;         ;
+; multcore.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/multcore.inc                                   ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/bypassff.inc                                   ;         ;
+; altshift.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altshift.inc                                   ;         ;
+; db/mult_aat.tdf                  ; yes             ; Auto-Generated Megafunction  ; D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/mult_aat.tdf            ;         ;
+; db/lpm_divide_jkm.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/lpm_divide_jkm.tdf      ;         ;
+; db/sign_div_unsign_bnh.tdf       ; yes             ; Auto-Generated Megafunction  ; D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/sign_div_unsign_bnh.tdf ;         ;
+; db/alt_u_div_aaf.tdf             ; yes             ; Auto-Generated Megafunction  ; D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/alt_u_div_aaf.tdf       ;         ;
+; db/lpm_divide_5bm.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/lpm_divide_5bm.tdf      ;         ;
+; db/sign_div_unsign_qlh.tdf       ; yes             ; Auto-Generated Megafunction  ; D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/sign_div_unsign_qlh.tdf ;         ;
+; db/alt_u_div_87f.tdf             ; yes             ; Auto-Generated Megafunction  ; D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/alt_u_div_87f.tdf       ;         ;
+; db/lpm_divide_fkm.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/lpm_divide_fkm.tdf      ;         ;
+; db/sign_div_unsign_7nh.tdf       ; yes             ; Auto-Generated Megafunction  ; D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/sign_div_unsign_7nh.tdf ;         ;
+; db/alt_u_div_2af.tdf             ; yes             ; Auto-Generated Megafunction  ; D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/alt_u_div_2af.tdf       ;         ;
+; db/lpm_divide_5jm.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/lpm_divide_5jm.tdf      ;         ;
+; db/sign_div_unsign_tlh.tdf       ; yes             ; Auto-Generated Megafunction  ; D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/sign_div_unsign_tlh.tdf ;         ;
+; db/alt_u_div_e7f.tdf             ; yes             ; Auto-Generated Megafunction  ; D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/alt_u_div_e7f.tdf       ;         ;
+; db/lpm_divide_2jm.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/lpm_divide_2jm.tdf      ;         ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------------------------+---------+
 
 
-+---------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                   ;
-+---------------------------------------------+-----------------+
-; Resource                                    ; Usage           ;
-+---------------------------------------------+-----------------+
-; Estimated Total logic elements              ; 47              ;
-;                                             ;                 ;
-; Total combinational functions               ; 47              ;
-; Logic element usage by number of LUT inputs ;                 ;
-;     -- 4 input functions                    ; 17              ;
-;     -- 3 input functions                    ; 23              ;
-;     -- <=2 input functions                  ; 7               ;
-;                                             ;                 ;
-; Logic elements by mode                      ;                 ;
-;     -- normal mode                          ; 47              ;
-;     -- arithmetic mode                      ; 0               ;
-;                                             ;                 ;
-; Total registers                             ; 0               ;
-;     -- Dedicated logic registers            ; 0               ;
-;     -- I/O registers                        ; 0               ;
-;                                             ;                 ;
-; I/O pins                                    ; 49              ;
-;                                             ;                 ;
-; Embedded Multiplier 9-bit elements          ; 0               ;
-;                                             ;                 ;
-; Maximum fan-out node                        ; instructions[1] ;
-; Maximum fan-out                             ; 18              ;
-; Total fan-out                               ; 209             ;
-; Average fan-out                             ; 1.44            ;
-+---------------------------------------------+-----------------+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 1,715     ;
+;                                             ;           ;
+; Total combinational functions               ; 1715      ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 403       ;
+;     -- 3 input functions                    ; 467       ;
+;     -- <=2 input functions                  ; 845       ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 1200      ;
+;     -- arithmetic mode                      ; 515       ;
+;                                             ;           ;
+; Total registers                             ; 59        ;
+;     -- Dedicated logic registers            ; 59        ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 35        ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 1         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 59        ;
+; Total fan-out                               ; 4722      ;
+; Average fan-out                             ; 2.56      ;
++---------------------------------------------+-----------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                      ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
-; |ULA_LCD                   ; 47 (47)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 49   ; 0            ; |ULA_LCD            ; ULA_LCD     ; work         ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                   ;
++----------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node             ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                          ; Entity Name         ; Library Name ;
++----------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; |helloworld                            ; 1715 (325)          ; 59 (59)                   ; 0           ; 1            ; 1       ; 0         ; 35   ; 0            ; |helloworld                                                                                                  ; helloworld          ; work         ;
+;    |lpm_divide:Div0|                   ; 25 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Div0                                                                                  ; lpm_divide          ; work         ;
+;       |lpm_divide_mhm:auto_generated|  ; 25 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Div0|lpm_divide_mhm:auto_generated                                                    ; lpm_divide_mhm      ; work         ;
+;          |sign_div_unsign_ekh:divider| ; 25 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Div0|lpm_divide_mhm:auto_generated|sign_div_unsign_ekh:divider                        ; sign_div_unsign_ekh ; work         ;
+;             |alt_u_div_g4f:divider|    ; 25 (25)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Div0|lpm_divide_mhm:auto_generated|sign_div_unsign_ekh:divider|alt_u_div_g4f:divider  ; alt_u_div_g4f       ; work         ;
+;    |lpm_divide:Div1|                   ; 56 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Div1                                                                                  ; lpm_divide          ; work         ;
+;       |lpm_divide_jhm:auto_generated|  ; 56 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Div1|lpm_divide_jhm:auto_generated                                                    ; lpm_divide_jhm      ; work         ;
+;          |sign_div_unsign_bkh:divider| ; 56 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Div1|lpm_divide_jhm:auto_generated|sign_div_unsign_bkh:divider                        ; sign_div_unsign_bkh ; work         ;
+;             |alt_u_div_a4f:divider|    ; 56 (56)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Div1|lpm_divide_jhm:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_a4f:divider  ; alt_u_div_a4f       ; work         ;
+;    |lpm_divide:Div2|                   ; 25 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Div2                                                                                  ; lpm_divide          ; work         ;
+;       |lpm_divide_mhm:auto_generated|  ; 25 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Div2|lpm_divide_mhm:auto_generated                                                    ; lpm_divide_mhm      ; work         ;
+;          |sign_div_unsign_ekh:divider| ; 25 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Div2|lpm_divide_mhm:auto_generated|sign_div_unsign_ekh:divider                        ; sign_div_unsign_ekh ; work         ;
+;             |alt_u_div_g4f:divider|    ; 25 (25)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Div2|lpm_divide_mhm:auto_generated|sign_div_unsign_ekh:divider|alt_u_div_g4f:divider  ; alt_u_div_g4f       ; work         ;
+;    |lpm_divide:Div3|                   ; 56 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Div3                                                                                  ; lpm_divide          ; work         ;
+;       |lpm_divide_jhm:auto_generated|  ; 56 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Div3|lpm_divide_jhm:auto_generated                                                    ; lpm_divide_jhm      ; work         ;
+;          |sign_div_unsign_bkh:divider| ; 56 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Div3|lpm_divide_jhm:auto_generated|sign_div_unsign_bkh:divider                        ; sign_div_unsign_bkh ; work         ;
+;             |alt_u_div_a4f:divider|    ; 56 (56)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Div3|lpm_divide_jhm:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_a4f:divider  ; alt_u_div_a4f       ; work         ;
+;    |lpm_divide:Div4|                   ; 82 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Div4                                                                                  ; lpm_divide          ; work         ;
+;       |lpm_divide_jkm:auto_generated|  ; 82 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Div4|lpm_divide_jkm:auto_generated                                                    ; lpm_divide_jkm      ; work         ;
+;          |sign_div_unsign_bnh:divider| ; 82 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Div4|lpm_divide_jkm:auto_generated|sign_div_unsign_bnh:divider                        ; sign_div_unsign_bnh ; work         ;
+;             |alt_u_div_aaf:divider|    ; 82 (82)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Div4|lpm_divide_jkm:auto_generated|sign_div_unsign_bnh:divider|alt_u_div_aaf:divider  ; alt_u_div_aaf       ; work         ;
+;    |lpm_divide:Div5|                   ; 185 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Div5                                                                                  ; lpm_divide          ; work         ;
+;       |lpm_divide_fkm:auto_generated|  ; 185 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Div5|lpm_divide_fkm:auto_generated                                                    ; lpm_divide_fkm      ; work         ;
+;          |sign_div_unsign_7nh:divider| ; 185 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Div5|lpm_divide_fkm:auto_generated|sign_div_unsign_7nh:divider                        ; sign_div_unsign_7nh ; work         ;
+;             |alt_u_div_2af:divider|    ; 185 (185)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Div5|lpm_divide_fkm:auto_generated|sign_div_unsign_7nh:divider|alt_u_div_2af:divider  ; alt_u_div_2af       ; work         ;
+;    |lpm_divide:Div6|                   ; 201 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Div6                                                                                  ; lpm_divide          ; work         ;
+;       |lpm_divide_5jm:auto_generated|  ; 201 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Div6|lpm_divide_5jm:auto_generated                                                    ; lpm_divide_5jm      ; work         ;
+;          |sign_div_unsign_tlh:divider| ; 201 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Div6|lpm_divide_5jm:auto_generated|sign_div_unsign_tlh:divider                        ; sign_div_unsign_tlh ; work         ;
+;             |alt_u_div_e7f:divider|    ; 201 (201)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Div6|lpm_divide_5jm:auto_generated|sign_div_unsign_tlh:divider|alt_u_div_e7f:divider  ; alt_u_div_e7f       ; work         ;
+;    |lpm_divide:Div7|                   ; 160 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Div7                                                                                  ; lpm_divide          ; work         ;
+;       |lpm_divide_2jm:auto_generated|  ; 160 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Div7|lpm_divide_2jm:auto_generated                                                    ; lpm_divide_2jm      ; work         ;
+;          |sign_div_unsign_qlh:divider| ; 160 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Div7|lpm_divide_2jm:auto_generated|sign_div_unsign_qlh:divider                        ; sign_div_unsign_qlh ; work         ;
+;             |alt_u_div_87f:divider|    ; 160 (160)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Div7|lpm_divide_2jm:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_87f:divider  ; alt_u_div_87f       ; work         ;
+;    |lpm_divide:Mod10|                  ; 163 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Mod10                                                                                 ; lpm_divide          ; work         ;
+;       |lpm_divide_5bm:auto_generated|  ; 163 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Mod10|lpm_divide_5bm:auto_generated                                                   ; lpm_divide_5bm      ; work         ;
+;          |sign_div_unsign_qlh:divider| ; 163 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Mod10|lpm_divide_5bm:auto_generated|sign_div_unsign_qlh:divider                       ; sign_div_unsign_qlh ; work         ;
+;             |alt_u_div_87f:divider|    ; 163 (163)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Mod10|lpm_divide_5bm:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_87f:divider ; alt_u_div_87f       ; work         ;
+;    |lpm_divide:Mod1|                   ; 23 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Mod1                                                                                  ; lpm_divide          ; work         ;
+;       |lpm_divide_m9m:auto_generated|  ; 23 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Mod1|lpm_divide_m9m:auto_generated                                                    ; lpm_divide_m9m      ; work         ;
+;          |sign_div_unsign_bkh:divider| ; 23 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Mod1|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider                        ; sign_div_unsign_bkh ; work         ;
+;             |alt_u_div_a4f:divider|    ; 23 (23)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Mod1|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_a4f:divider  ; alt_u_div_a4f       ; work         ;
+;    |lpm_divide:Mod2|                   ; 59 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Mod2                                                                                  ; lpm_divide          ; work         ;
+;       |lpm_divide_m9m:auto_generated|  ; 59 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Mod2|lpm_divide_m9m:auto_generated                                                    ; lpm_divide_m9m      ; work         ;
+;          |sign_div_unsign_bkh:divider| ; 59 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Mod2|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider                        ; sign_div_unsign_bkh ; work         ;
+;             |alt_u_div_a4f:divider|    ; 59 (59)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Mod2|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_a4f:divider  ; alt_u_div_a4f       ; work         ;
+;    |lpm_divide:Mod4|                   ; 24 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Mod4                                                                                  ; lpm_divide          ; work         ;
+;       |lpm_divide_m9m:auto_generated|  ; 24 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Mod4|lpm_divide_m9m:auto_generated                                                    ; lpm_divide_m9m      ; work         ;
+;          |sign_div_unsign_bkh:divider| ; 24 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Mod4|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider                        ; sign_div_unsign_bkh ; work         ;
+;             |alt_u_div_a4f:divider|    ; 24 (24)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Mod4|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_a4f:divider  ; alt_u_div_a4f       ; work         ;
+;    |lpm_divide:Mod5|                   ; 59 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Mod5                                                                                  ; lpm_divide          ; work         ;
+;       |lpm_divide_m9m:auto_generated|  ; 59 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Mod5|lpm_divide_m9m:auto_generated                                                    ; lpm_divide_m9m      ; work         ;
+;          |sign_div_unsign_bkh:divider| ; 59 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Mod5|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider                        ; sign_div_unsign_bkh ; work         ;
+;             |alt_u_div_a4f:divider|    ; 59 (59)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Mod5|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_a4f:divider  ; alt_u_div_a4f       ; work         ;
+;    |lpm_divide:Mod7|                   ; 52 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Mod7                                                                                  ; lpm_divide          ; work         ;
+;       |lpm_divide_5bm:auto_generated|  ; 52 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Mod7|lpm_divide_5bm:auto_generated                                                    ; lpm_divide_5bm      ; work         ;
+;          |sign_div_unsign_qlh:divider| ; 52 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Mod7|lpm_divide_5bm:auto_generated|sign_div_unsign_qlh:divider                        ; sign_div_unsign_qlh ; work         ;
+;             |alt_u_div_87f:divider|    ; 52 (52)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Mod7|lpm_divide_5bm:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_87f:divider  ; alt_u_div_87f       ; work         ;
+;    |lpm_divide:Mod8|                   ; 93 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Mod8                                                                                  ; lpm_divide          ; work         ;
+;       |lpm_divide_5bm:auto_generated|  ; 93 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Mod8|lpm_divide_5bm:auto_generated                                                    ; lpm_divide_5bm      ; work         ;
+;          |sign_div_unsign_qlh:divider| ; 93 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Mod8|lpm_divide_5bm:auto_generated|sign_div_unsign_qlh:divider                        ; sign_div_unsign_qlh ; work         ;
+;             |alt_u_div_87f:divider|    ; 93 (93)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Mod8|lpm_divide_5bm:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_87f:divider  ; alt_u_div_87f       ; work         ;
+;    |lpm_divide:Mod9|                   ; 127 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Mod9                                                                                  ; lpm_divide          ; work         ;
+;       |lpm_divide_5bm:auto_generated|  ; 127 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Mod9|lpm_divide_5bm:auto_generated                                                    ; lpm_divide_5bm      ; work         ;
+;          |sign_div_unsign_qlh:divider| ; 127 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Mod9|lpm_divide_5bm:auto_generated|sign_div_unsign_qlh:divider                        ; sign_div_unsign_qlh ; work         ;
+;             |alt_u_div_87f:divider|    ; 127 (127)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |helloworld|lpm_divide:Mod9|lpm_divide_5bm:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_87f:divider  ; alt_u_div_87f       ; work         ;
+;    |lpm_mult:Mult0|                    ; 0 (0)               ; 0 (0)                     ; 0           ; 1            ; 1       ; 0         ; 0    ; 0            ; |helloworld|lpm_mult:Mult0                                                                                   ; lpm_mult            ; work         ;
+;       |mult_aat:auto_generated|        ; 0 (0)               ; 0 (0)                     ; 0           ; 1            ; 1       ; 0         ; 0    ; 0            ; |helloworld|lpm_mult:Mult0|mult_aat:auto_generated                                                           ; mult_aat            ; work         ;
++----------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+----------------------------------------------------------------------------------------------------+
-; User-Specified and Inferred Latches                                                                ;
-+-----------------------------------------------------+---------------------+------------------------+
-; Latch Name                                          ; Latch Enable Signal ; Free of Timing Hazards ;
-+-----------------------------------------------------+---------------------+------------------------+
-; RS$latch                                            ; WideOr1             ; yes                    ;
-; data[0]$latch                                       ; WideOr1             ; yes                    ;
-; data[1]$latch                                       ; WideOr1             ; yes                    ;
-; data[2]$latch                                       ; WideOr1             ; yes                    ;
-; data[3]$latch                                       ; WideOr1             ; yes                    ;
-; data[4]$latch                                       ; WideOr1             ; yes                    ;
-; data[5]$latch                                       ; WideOr1             ; yes                    ;
-; data[6]$latch                                       ; WideOr1             ; yes                    ;
-; data[7]$latch                                       ; WideOr1             ; yes                    ;
-; instructions[4]                                     ; WideOr1             ; yes                    ;
-; instructions[0]                                     ; WideOr1             ; yes                    ;
-; instructions[1]                                     ; WideOr1             ; yes                    ;
-; instructions[2]                                     ; WideOr1             ; yes                    ;
-; instructions[3]                                     ; WideOr1             ; yes                    ;
-; oper[0]                                             ; Mux16               ; yes                    ;
-; oper[1]                                             ; Mux16               ; yes                    ;
-; oper[2]                                             ; Mux16               ; yes                    ;
-; Number of user-specified and inferred latches = 17  ;                     ;                        ;
-+-----------------------------------------------------+---------------------+------------------------+
-Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
++-----------------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary        ;
++---------------------------------------+-------------+
+; Statistic                             ; Number Used ;
++---------------------------------------+-------------+
+; Simple Multipliers (9-bit)            ; 1           ;
+; Simple Multipliers (18-bit)           ; 0           ;
+; Embedded Multiplier Blocks            ; --          ;
+; Embedded Multiplier 9-bit elements    ; 1           ;
+; Signed Embedded Multipliers           ; 0           ;
+; Unsigned Embedded Multipliers         ; 1           ;
+; Mixed Sign Embedded Multipliers       ; 0           ;
+; Variable Sign Embedded Multipliers    ; 0           ;
+; Dedicated Input Shift Register Chains ; 0           ;
++---------------------------------------+-------------+
+Note: number of Embedded Multiplier Blocks used is only available after a successful fit.
+
+
+Encoding Type:  One-Hot
++-----------------------------------+
+; State Machine - |helloworld|state ;
++-------------+---------------------+
+; Name        ; state.WRITE         ;
++-------------+---------------------+
+; state.WAIT  ; 0                   ;
+; state.WRITE ; 1                   ;
++-------------+---------------------+
+
+
++------------------------------------------------------------+
+; Registers Removed During Synthesis                         ;
++---------------------------------------+--------------------+
+; Register name                         ; Reason for Removal ;
++---------------------------------------+--------------------+
+; state~5                               ; Lost fanout        ;
+; Total Number of Removed Registers = 1 ;                    ;
++---------------------------------------+--------------------+
 
 
 +------------------------------------------------------+
@@ -248,14 +390,28 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 0     ;
-; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 0     ;
+; Total registers                              ; 59    ;
+; Number of registers using Synchronous Clear  ; 37    ;
+; Number of registers using Synchronous Load   ; 6     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 17    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; EN~reg0                                ; 2       ;
+; cache[3]                               ; 2       ;
+; cache[1]                               ; 2       ;
+; cache[0]                               ; 1       ;
+; cache[2]                               ; 2       ;
+; Total number of inverted registers = 5 ;         ;
++----------------------------------------+---------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------------------+
@@ -263,8 +419,518 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; 7:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; No         ; |ULA_LCD|Mux5              ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 6 LEs                ; 3 LEs                  ; Yes        ; |helloworld|sel[0]         ;
+; 271:1              ; 4 bits    ; 720 LEs       ; 40 LEs               ; 680 LEs                ; Yes        ; |helloworld|data[6]~reg0   ;
+; 338:1              ; 2 bits    ; 450 LEs       ; 22 LEs               ; 428 LEs                ; Yes        ; |helloworld|data[2]~reg0   ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |helloworld|Mux0           ;
+; 10:1               ; 8 bits    ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; No         ; |helloworld|Mux13          ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+
+
++----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |helloworld ;
++----------------+-------+---------------------------------------------------+
+; Parameter Name ; Value ; Type                                              ;
++----------------+-------+---------------------------------------------------+
+; WAIT           ; 0     ; Signed Integer                                    ;
+; WRITE          ; 1     ; Signed Integer                                    ;
+; FINAL          ; 23    ; Signed Integer                                    ;
+; ONEMS          ; 50000 ; Signed Integer                                    ;
+; HALFMS         ; 25000 ; Signed Integer                                    ;
++----------------+-------+---------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Div0 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 8              ; Untyped                ;
+; LPM_WIDTHD             ; 7              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_mhm ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 8              ; Untyped                ;
+; LPM_WIDTHD             ; 4              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_m9m ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Div1 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 8              ; Untyped                ;
+; LPM_WIDTHD             ; 4              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_jhm ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod1 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 8              ; Untyped                ;
+; LPM_WIDTHD             ; 4              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_m9m ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod2 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 8              ; Untyped                ;
+; LPM_WIDTHD             ; 4              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_m9m ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_mult:Mult0                     ;
++------------------------------------------------+--------------+---------------------+
+; Parameter Name                                 ; Value        ; Type                ;
++------------------------------------------------+--------------+---------------------+
+; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE      ;
+; LPM_WIDTHA                                     ; 8            ; Untyped             ;
+; LPM_WIDTHB                                     ; 8            ; Untyped             ;
+; LPM_WIDTHP                                     ; 16           ; Untyped             ;
+; LPM_WIDTHR                                     ; 16           ; Untyped             ;
+; LPM_WIDTHS                                     ; 1            ; Untyped             ;
+; LPM_REPRESENTATION                             ; UNSIGNED     ; Untyped             ;
+; LPM_PIPELINE                                   ; 0            ; Untyped             ;
+; LATENCY                                        ; 0            ; Untyped             ;
+; INPUT_A_IS_CONSTANT                            ; NO           ; Untyped             ;
+; INPUT_B_IS_CONSTANT                            ; NO           ; Untyped             ;
+; USE_EAB                                        ; OFF          ; Untyped             ;
+; MAXIMIZE_SPEED                                 ; 5            ; Untyped             ;
+; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped             ;
+; CARRY_CHAIN                                    ; MANUAL       ; Untyped             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped             ;
+; CBXI_PARAMETER                                 ; mult_aat     ; Untyped             ;
+; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped             ;
+; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped             ;
++------------------------------------------------+--------------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Div4 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 16             ; Untyped                ;
+; LPM_WIDTHD             ; 14             ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_jkm ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod6 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 16             ; Untyped                ;
+; LPM_WIDTHD             ; 4              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_5bm ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Div5 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 16             ; Untyped                ;
+; LPM_WIDTHD             ; 10             ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_fkm ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod7 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 16             ; Untyped                ;
+; LPM_WIDTHD             ; 4              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_5bm ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Div6 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 16             ; Untyped                ;
+; LPM_WIDTHD             ; 7              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_5jm ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod8 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 16             ; Untyped                ;
+; LPM_WIDTHD             ; 4              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_5bm ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Div7 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 16             ; Untyped                ;
+; LPM_WIDTHD             ; 4              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_2jm ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod9 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 16             ; Untyped                ;
+; LPM_WIDTHD             ; 4              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_5bm ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod10 ;
++------------------------+----------------+-------------------------+
+; Parameter Name         ; Value          ; Type                    ;
++------------------------+----------------+-------------------------+
+; LPM_WIDTHN             ; 16             ; Untyped                 ;
+; LPM_WIDTHD             ; 4              ; Untyped                 ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                 ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                 ;
+; LPM_PIPELINE           ; 0              ; Untyped                 ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                 ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                 ;
+; CBXI_PARAMETER         ; lpm_divide_5bm ; Untyped                 ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                 ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                 ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY              ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY            ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE            ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE          ;
++------------------------+----------------+-------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Div2 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 8              ; Untyped                ;
+; LPM_WIDTHD             ; 7              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_mhm ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod3 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 8              ; Untyped                ;
+; LPM_WIDTHD             ; 4              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_m9m ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Div3 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 8              ; Untyped                ;
+; LPM_WIDTHD             ; 4              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_jhm ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod4 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 8              ; Untyped                ;
+; LPM_WIDTHD             ; 4              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_m9m ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod5 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 8              ; Untyped                ;
+; LPM_WIDTHD             ; 4              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_m9m ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------+
+; lpm_mult Parameter Settings by Entity Instance         ;
++---------------------------------------+----------------+
+; Name                                  ; Value          ;
++---------------------------------------+----------------+
+; Number of entity instances            ; 1              ;
+; Entity Instance                       ; lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 8              ;
+;     -- LPM_WIDTHB                     ; 8              ;
+;     -- LPM_WIDTHP                     ; 16             ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED       ;
+;     -- INPUT_A_IS_CONSTANT            ; NO             ;
+;     -- INPUT_B_IS_CONSTANT            ; NO             ;
+;     -- USE_EAB                        ; OFF            ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO           ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx             ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx             ;
++---------------------------------------+----------------+
 
 
 +-----------------------------------------------------+
@@ -272,16 +938,29 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 49                          ;
-; cycloneiii_lcell_comb ; 48                          ;
-;     normal            ; 48                          ;
-;         0 data inputs ; 1                           ;
-;         2 data inputs ; 7                           ;
-;         3 data inputs ; 23                          ;
-;         4 data inputs ; 17                          ;
+; boundary_port         ; 35                          ;
+; cycloneiii_ff         ; 59                          ;
+;     ENA               ; 13                          ;
+;     ENA SCLR SLD      ; 4                           ;
+;     SCLR              ; 33                          ;
+;     SLD               ; 2                           ;
+;     plain             ; 7                           ;
+; cycloneiii_lcell_comb ; 1716                        ;
+;     arith             ; 515                         ;
+;         1 data inputs ; 5                           ;
+;         2 data inputs ; 103                         ;
+;         3 data inputs ; 407                         ;
+;     normal            ; 1201                        ;
+;         0 data inputs ; 99                          ;
+;         1 data inputs ; 23                          ;
+;         2 data inputs ; 616                         ;
+;         3 data inputs ; 60                          ;
+;         4 data inputs ; 403                         ;
+; cycloneiii_mac_mult   ; 1                           ;
+; cycloneiii_mac_out    ; 1                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 5.00                        ;
-; Average LUT depth     ; 2.79                        ;
+; Max LUT depth         ; 40.90                       ;
+; Average LUT depth     ; 28.18                       ;
 +-----------------------+-----------------------------+
 
 
@@ -300,199 +979,200 @@ Note: All latches listed above may not be present at the end of synthesis due to
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Fri Sep 08 16:29:31 2023
+    Info: Processing started: Sun Sep 10 16:35:52 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off projeto2 -c projeto2
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file seletor.v
-    Info (12023): Found entity 1: seletor File: C:/Users/natha/Desktop/quartus_folder/seletor.v Line: 1
+    Info (12023): Found entity 1: seletor File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/seletor.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file calculadora.v
-    Info (12023): Found entity 1: calculadora File: C:/Users/natha/Desktop/quartus_folder/calculadora.v Line: 1
+    Info (12023): Found entity 1: calculadora File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/calculadora.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file contador.v
-    Info (12023): Found entity 1: contador File: C:/Users/natha/Desktop/quartus_folder/contador.v Line: 1
+    Info (12023): Found entity 1: contador File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/contador.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file ula_lcd.v
-    Info (12023): Found entity 1: ULA_LCD File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 1
-Critical Warning (10846): Verilog HDL Instantiation warning at seletor.v(22): instance has no name File: C:/Users/natha/Desktop/quartus_folder/seletor.v Line: 22
-Critical Warning (10846): Verilog HDL Instantiation warning at calculadora.v(53): instance has no name File: C:/Users/natha/Desktop/quartus_folder/calculadora.v Line: 53
-Critical Warning (10846): Verilog HDL Instantiation warning at seletor.v(53): instance has no name File: C:/Users/natha/Desktop/quartus_folder/seletor.v Line: 53
-Info (12127): Elaborating entity "ULA_LCD" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at ULA_LCD.v(13): object "a_dezena" assigned a value but never read File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 13
-Warning (10036): Verilog HDL or VHDL warning at ULA_LCD.v(14): object "b_dezena" assigned a value but never read File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 14
-Warning (10036): Verilog HDL or VHDL warning at ULA_LCD.v(15): object "dezena" assigned a value but never read File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 15
-Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(17): truncated value with size 32 to match size of target (1) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 17
-Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(18): truncated value with size 32 to match size of target (1) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 18
-Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(19): truncated value with size 32 to match size of target (1) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 19
-Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(20): truncated value with size 32 to match size of target (1) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 20
-Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(21): truncated value with size 8 to match size of target (1) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 21
-Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(23): truncated value with size 32 to match size of target (1) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 23
-Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(24): truncated value with size 32 to match size of target (1) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 24
-Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(25): truncated value with size 32 to match size of target (1) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 25
-Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(26): truncated value with size 32 to match size of target (1) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 26
-Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(27): truncated value with size 8 to match size of target (1) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 27
-Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(29): truncated value with size 32 to match size of target (1) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 29
-Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(30): truncated value with size 32 to match size of target (1) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 30
-Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(31): truncated value with size 32 to match size of target (1) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 31
-Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(32): truncated value with size 32 to match size of target (1) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 32
-Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(33): truncated value with size 16 to match size of target (1) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 33
-Warning (10855): Verilog HDL warning at ULA_LCD.v(16): initial value for variable a_dez_milhar should be constant File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 16
-Warning (10855): Verilog HDL warning at ULA_LCD.v(16): initial value for variable a_milhar should be constant File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 16
-Warning (10855): Verilog HDL warning at ULA_LCD.v(16): initial value for variable a_centena should be constant File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 16
-Warning (10855): Verilog HDL warning at ULA_LCD.v(16): initial value for variable a_dezena should be constant File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 16
-Warning (10855): Verilog HDL warning at ULA_LCD.v(16): initial value for variable a_unidade should be constant File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 16
-Warning (10855): Verilog HDL warning at ULA_LCD.v(16): initial value for variable b_dez_milhar should be constant File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 16
-Warning (10855): Verilog HDL warning at ULA_LCD.v(16): initial value for variable b_milhar should be constant File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 16
-Warning (10855): Verilog HDL warning at ULA_LCD.v(16): initial value for variable b_centena should be constant File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 16
-Warning (10855): Verilog HDL warning at ULA_LCD.v(16): initial value for variable b_dezena should be constant File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 16
-Warning (10855): Verilog HDL warning at ULA_LCD.v(16): initial value for variable b_unidade should be constant File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 16
-Warning (10855): Verilog HDL warning at ULA_LCD.v(16): initial value for variable dez_milhar should be constant File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 16
-Warning (10855): Verilog HDL warning at ULA_LCD.v(16): initial value for variable milhar should be constant File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 16
-Warning (10855): Verilog HDL warning at ULA_LCD.v(16): initial value for variable centena should be constant File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 16
-Warning (10855): Verilog HDL warning at ULA_LCD.v(16): initial value for variable dezena should be constant File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 16
-Warning (10855): Verilog HDL warning at ULA_LCD.v(16): initial value for variable unidade should be constant File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 16
-Warning (10270): Verilog HDL Case Statement warning at ULA_LCD.v(43): incomplete case statement has no default case item File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 43
-Info (10264): Verilog HDL Case Statement information at ULA_LCD.v(43): all case item expressions in this case statement are onehot File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 43
-Warning (10240): Verilog HDL Always Construct warning at ULA_LCD.v(43): inferring latch(es) for variable "oper", which holds its previous value in one or more paths through the always construct File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 43
-Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(67): truncated value with size 32 to match size of target (6) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 67
-Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(68): truncated value with size 32 to match size of target (6) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 68
-Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(69): truncated value with size 32 to match size of target (6) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 69
-Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(70): truncated value with size 32 to match size of target (6) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 70
-Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(71): truncated value with size 32 to match size of target (6) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 71
-Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(72): truncated value with size 32 to match size of target (6) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 72
-Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(73): truncated value with size 32 to match size of target (6) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 73
-Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(74): truncated value with size 32 to match size of target (6) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 74
-Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(75): truncated value with size 32 to match size of target (6) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 75
-Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(76): truncated value with size 32 to match size of target (6) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 76
-Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(77): truncated value with size 32 to match size of target (6) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 77
-Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(78): truncated value with size 32 to match size of target (6) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 78
-Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(79): truncated value with size 32 to match size of target (6) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 79
-Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(80): truncated value with size 32 to match size of target (6) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 80
-Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(81): truncated value with size 32 to match size of target (6) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 81
-Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(82): truncated value with size 32 to match size of target (6) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 82
-Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(83): truncated value with size 32 to match size of target (6) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 83
-Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(84): truncated value with size 32 to match size of target (6) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 84
-Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(85): truncated value with size 32 to match size of target (6) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 85
-Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(86): truncated value with size 32 to match size of target (6) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 86
-Warning (10230): Verilog HDL assignment warning at ULA_LCD.v(87): truncated value with size 32 to match size of target (6) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 87
-Warning (10270): Verilog HDL Case Statement warning at ULA_LCD.v(66): incomplete case statement has no default case item File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
-Warning (10240): Verilog HDL Always Construct warning at ULA_LCD.v(66): inferring latch(es) for variable "data", which holds its previous value in one or more paths through the always construct File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
-Warning (10240): Verilog HDL Always Construct warning at ULA_LCD.v(66): inferring latch(es) for variable "RS", which holds its previous value in one or more paths through the always construct File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
-Warning (10240): Verilog HDL Always Construct warning at ULA_LCD.v(66): inferring latch(es) for variable "instructions", which holds its previous value in one or more paths through the always construct File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
-Warning (10030): Net "a_dez_milhar" at ULA_LCD.v(13) has no driver or initial value, using a default initial value '0' File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 13
-Warning (10030): Net "a_milhar" at ULA_LCD.v(13) has no driver or initial value, using a default initial value '0' File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 13
-Warning (10030): Net "a_centena" at ULA_LCD.v(13) has no driver or initial value, using a default initial value '0' File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 13
-Warning (10030): Net "a_unidade" at ULA_LCD.v(13) has no driver or initial value, using a default initial value '0' File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 13
-Warning (10030): Net "b_dez_milhar" at ULA_LCD.v(14) has no driver or initial value, using a default initial value '0' File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 14
-Warning (10030): Net "b_milhar" at ULA_LCD.v(14) has no driver or initial value, using a default initial value '0' File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 14
-Warning (10030): Net "b_centena" at ULA_LCD.v(14) has no driver or initial value, using a default initial value '0' File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 14
-Warning (10030): Net "b_unidade" at ULA_LCD.v(14) has no driver or initial value, using a default initial value '0' File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 14
-Warning (10030): Net "dez_milhar" at ULA_LCD.v(15) has no driver or initial value, using a default initial value '0' File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 15
-Warning (10030): Net "milhar" at ULA_LCD.v(15) has no driver or initial value, using a default initial value '0' File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 15
-Warning (10030): Net "centena" at ULA_LCD.v(15) has no driver or initial value, using a default initial value '0' File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 15
-Warning (10030): Net "unidade" at ULA_LCD.v(15) has no driver or initial value, using a default initial value '0' File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 15
-Warning (10034): Output port "EN" at ULA_LCD.v(9) has no driver File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 9
-Warning (10034): Output port "RW" at ULA_LCD.v(11) has no driver File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 11
-Info (10041): Inferred latch for "instructions[0]" at ULA_LCD.v(66) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
-Info (10041): Inferred latch for "instructions[1]" at ULA_LCD.v(66) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
-Info (10041): Inferred latch for "instructions[2]" at ULA_LCD.v(66) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
-Info (10041): Inferred latch for "instructions[3]" at ULA_LCD.v(66) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
-Info (10041): Inferred latch for "instructions[4]" at ULA_LCD.v(66) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
-Info (10041): Inferred latch for "instructions[5]" at ULA_LCD.v(66) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
-Info (10041): Inferred latch for "RS" at ULA_LCD.v(66) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
-Info (10041): Inferred latch for "data[0]" at ULA_LCD.v(66) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
-Info (10041): Inferred latch for "data[1]" at ULA_LCD.v(66) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
-Info (10041): Inferred latch for "data[2]" at ULA_LCD.v(66) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
-Info (10041): Inferred latch for "data[3]" at ULA_LCD.v(66) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
-Info (10041): Inferred latch for "data[4]" at ULA_LCD.v(66) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
-Info (10041): Inferred latch for "data[5]" at ULA_LCD.v(66) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
-Info (10041): Inferred latch for "data[6]" at ULA_LCD.v(66) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
-Info (10041): Inferred latch for "data[7]" at ULA_LCD.v(66) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
-Info (10041): Inferred latch for "oper[0]" at ULA_LCD.v(43) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 43
-Info (10041): Inferred latch for "oper[1]" at ULA_LCD.v(43) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 43
-Info (10041): Inferred latch for "oper[2]" at ULA_LCD.v(43) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 43
-Info (10041): Inferred latch for "oper[3]" at ULA_LCD.v(43) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 43
-Info (10041): Inferred latch for "oper[4]" at ULA_LCD.v(43) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 43
-Info (10041): Inferred latch for "oper[5]" at ULA_LCD.v(43) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 43
-Info (10041): Inferred latch for "oper[6]" at ULA_LCD.v(43) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 43
-Info (10041): Inferred latch for "oper[7]" at ULA_LCD.v(43) File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 43
-Warning (13012): Latch RS$latch has unsafe behavior File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructions[4] File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
-Warning (13012): Latch data[0]$latch has unsafe behavior File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructions[3] File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
-Warning (13012): Latch data[1]$latch has unsafe behavior File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructions[3] File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
-Warning (13012): Latch data[2]$latch has unsafe behavior File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructions[3] File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
-Warning (13012): Latch data[3]$latch has unsafe behavior File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructions[3] File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
-Warning (13012): Latch data[4]$latch has unsafe behavior File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructions[3] File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
-Warning (13012): Latch data[5]$latch has unsafe behavior File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructions[4] File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
-Warning (13012): Latch data[6]$latch has unsafe behavior File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructions[3] File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
-Warning (13012): Latch data[7]$latch has unsafe behavior File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructions[4] File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
-Warning (13012): Latch instructions[4] has unsafe behavior File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructions[4] File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
-Warning (13012): Latch instructions[1] has unsafe behavior File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructions[1] File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
-Warning (13012): Latch instructions[2] has unsafe behavior File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructions[2] File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
-Warning (13012): Latch instructions[3] has unsafe behavior File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructions[0] File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 66
-Warning (13012): Latch oper[0] has unsafe behavior File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 43
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal sel[0] File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 8
-Warning (13012): Latch oper[1] has unsafe behavior File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 43
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal sel[1] File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 8
-Warning (13012): Latch oper[2] has unsafe behavior File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 43
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal sel[1] File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 8
+    Info (12023): Found entity 1: ULA_LCD File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/ULA_LCD.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file principal.v
+    Info (12023): Found entity 1: principal File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/principal.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file helloworld.v
+    Info (12023): Found entity 1: helloworld File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/helloworld.v Line: 1
+Warning (10236): Verilog HDL Implicit Net warning at principal.v(17): created implicit net for "saida" File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/principal.v Line: 17
+Warning (10236): Verilog HDL Implicit Net warning at principal.v(17): created implicit net for "sinal_saida" File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/principal.v Line: 17
+Warning (10236): Verilog HDL Implicit Net warning at principal.v(18): created implicit net for "sel" File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/principal.v Line: 18
+Critical Warning (10846): Verilog HDL Instantiation warning at seletor.v(49): instance has no name File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/seletor.v Line: 49
+Critical Warning (10846): Verilog HDL Instantiation warning at principal.v(17): instance has no name File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/principal.v Line: 17
+Critical Warning (10846): Verilog HDL Instantiation warning at principal.v(18): instance has no name File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/principal.v Line: 18
+Info (12127): Elaborating entity "helloworld" for the top level hierarchy
+Info (10264): Verilog HDL Case Statement information at helloworld.v(75): all case item expressions in this case statement are onehot File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/helloworld.v Line: 75
+Warning (10230): Verilog HDL assignment warning at helloworld.v(118): truncated value with size 32 to match size of target (4) File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/helloworld.v Line: 118
+Warning (10230): Verilog HDL assignment warning at helloworld.v(119): truncated value with size 32 to match size of target (4) File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/helloworld.v Line: 119
+Warning (10230): Verilog HDL assignment warning at helloworld.v(120): truncated value with size 32 to match size of target (4) File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/helloworld.v Line: 120
+Warning (10230): Verilog HDL assignment warning at helloworld.v(122): truncated value with size 32 to match size of target (4) File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/helloworld.v Line: 122
+Warning (10230): Verilog HDL assignment warning at helloworld.v(123): truncated value with size 32 to match size of target (4) File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/helloworld.v Line: 123
+Warning (10230): Verilog HDL assignment warning at helloworld.v(124): truncated value with size 32 to match size of target (4) File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/helloworld.v Line: 124
+Warning (10230): Verilog HDL assignment warning at helloworld.v(126): truncated value with size 32 to match size of target (4) File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/helloworld.v Line: 126
+Warning (10230): Verilog HDL assignment warning at helloworld.v(127): truncated value with size 32 to match size of target (4) File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/helloworld.v Line: 127
+Warning (10230): Verilog HDL assignment warning at helloworld.v(128): truncated value with size 32 to match size of target (4) File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/helloworld.v Line: 128
+Warning (10230): Verilog HDL assignment warning at helloworld.v(129): truncated value with size 32 to match size of target (4) File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/helloworld.v Line: 129
+Warning (10230): Verilog HDL assignment warning at helloworld.v(130): truncated value with size 32 to match size of target (4) File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/helloworld.v Line: 130
+Warning (10230): Verilog HDL assignment warning at helloworld.v(152): truncated value with size 32 to match size of target (8) File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/helloworld.v Line: 152
+Info (278001): Inferred 20 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div0" File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/helloworld.v Line: 118
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod0" File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/helloworld.v Line: 118
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div1" File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/helloworld.v Line: 119
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod1" File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/helloworld.v Line: 119
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod2" File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/helloworld.v Line: 120
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "Mult0" File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/helloworld.v Line: 100
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div4" File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/helloworld.v Line: 126
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod6" File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/helloworld.v Line: 126
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div5" File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/helloworld.v Line: 127
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod7" File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/helloworld.v Line: 127
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div6" File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/helloworld.v Line: 128
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod8" File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/helloworld.v Line: 128
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div7" File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/helloworld.v Line: 129
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod9" File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/helloworld.v Line: 129
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod10" File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/helloworld.v Line: 130
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div2" File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/helloworld.v Line: 122
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod3" File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/helloworld.v Line: 122
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div3" File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/helloworld.v Line: 123
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod4" File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/helloworld.v Line: 123
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod5" File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/helloworld.v Line: 124
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Div0" File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/helloworld.v Line: 118
+Info (12133): Instantiated megafunction "lpm_divide:Div0" with the following parameter: File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/helloworld.v Line: 118
+    Info (12134): Parameter "LPM_WIDTHN" = "8"
+    Info (12134): Parameter "LPM_WIDTHD" = "7"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_mhm.tdf
+    Info (12023): Found entity 1: lpm_divide_mhm File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/lpm_divide_mhm.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_ekh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_ekh File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/sign_div_unsign_ekh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_g4f.tdf
+    Info (12023): Found entity 1: alt_u_div_g4f File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/alt_u_div_g4f.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_7pc.tdf
+    Info (12023): Found entity 1: add_sub_7pc File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/add_sub_7pc.tdf Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_8pc.tdf
+    Info (12023): Found entity 1: add_sub_8pc File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/add_sub_8pc.tdf Line: 23
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod0" File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/helloworld.v Line: 118
+Info (12133): Instantiated megafunction "lpm_divide:Mod0" with the following parameter: File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/helloworld.v Line: 118
+    Info (12134): Parameter "LPM_WIDTHN" = "8"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_m9m.tdf
+    Info (12023): Found entity 1: lpm_divide_m9m File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/lpm_divide_m9m.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_bkh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_bkh File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/sign_div_unsign_bkh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_a4f.tdf
+    Info (12023): Found entity 1: alt_u_div_a4f File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/alt_u_div_a4f.tdf Line: 27
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Div1" File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/helloworld.v Line: 119
+Info (12133): Instantiated megafunction "lpm_divide:Div1" with the following parameter: File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/helloworld.v Line: 119
+    Info (12134): Parameter "LPM_WIDTHN" = "8"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_jhm.tdf
+    Info (12023): Found entity 1: lpm_divide_jhm File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/lpm_divide_jhm.tdf Line: 25
+Info (12130): Elaborated megafunction instantiation "lpm_mult:Mult0" File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/helloworld.v Line: 100
+Info (12133): Instantiated megafunction "lpm_mult:Mult0" with the following parameter: File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/helloworld.v Line: 100
+    Info (12134): Parameter "LPM_WIDTHA" = "8"
+    Info (12134): Parameter "LPM_WIDTHB" = "8"
+    Info (12134): Parameter "LPM_WIDTHP" = "16"
+    Info (12134): Parameter "LPM_WIDTHR" = "16"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_aat.tdf
+    Info (12023): Found entity 1: mult_aat File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/mult_aat.tdf Line: 29
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Div4" File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/helloworld.v Line: 126
+Info (12133): Instantiated megafunction "lpm_divide:Div4" with the following parameter: File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/helloworld.v Line: 126
+    Info (12134): Parameter "LPM_WIDTHN" = "16"
+    Info (12134): Parameter "LPM_WIDTHD" = "14"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_jkm.tdf
+    Info (12023): Found entity 1: lpm_divide_jkm File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/lpm_divide_jkm.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_bnh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_bnh File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/sign_div_unsign_bnh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_aaf.tdf
+    Info (12023): Found entity 1: alt_u_div_aaf File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/alt_u_div_aaf.tdf Line: 27
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod6" File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/helloworld.v Line: 126
+Info (12133): Instantiated megafunction "lpm_divide:Mod6" with the following parameter: File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/helloworld.v Line: 126
+    Info (12134): Parameter "LPM_WIDTHN" = "16"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_5bm.tdf
+    Info (12023): Found entity 1: lpm_divide_5bm File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/lpm_divide_5bm.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_qlh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_qlh File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/sign_div_unsign_qlh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_87f.tdf
+    Info (12023): Found entity 1: alt_u_div_87f File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/alt_u_div_87f.tdf Line: 27
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Div5" File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/helloworld.v Line: 127
+Info (12133): Instantiated megafunction "lpm_divide:Div5" with the following parameter: File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/helloworld.v Line: 127
+    Info (12134): Parameter "LPM_WIDTHN" = "16"
+    Info (12134): Parameter "LPM_WIDTHD" = "10"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_fkm.tdf
+    Info (12023): Found entity 1: lpm_divide_fkm File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/lpm_divide_fkm.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_7nh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_7nh File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/sign_div_unsign_7nh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_2af.tdf
+    Info (12023): Found entity 1: alt_u_div_2af File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/alt_u_div_2af.tdf Line: 27
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Div6" File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/helloworld.v Line: 128
+Info (12133): Instantiated megafunction "lpm_divide:Div6" with the following parameter: File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/helloworld.v Line: 128
+    Info (12134): Parameter "LPM_WIDTHN" = "16"
+    Info (12134): Parameter "LPM_WIDTHD" = "7"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_5jm.tdf
+    Info (12023): Found entity 1: lpm_divide_5jm File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/lpm_divide_5jm.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_tlh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_tlh File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/sign_div_unsign_tlh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_e7f.tdf
+    Info (12023): Found entity 1: alt_u_div_e7f File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/alt_u_div_e7f.tdf Line: 27
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Div7" File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/helloworld.v Line: 129
+Info (12133): Instantiated megafunction "lpm_divide:Div7" with the following parameter: File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/helloworld.v Line: 129
+    Info (12134): Parameter "LPM_WIDTHN" = "16"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_2jm.tdf
+    Info (12023): Found entity 1: lpm_divide_2jm File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/lpm_divide_2jm.tdf Line: 25
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "EN" is stuck at GND File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 9
-    Warning (13410): Pin "RW" is stuck at GND File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 11
+    Warning (13410): Pin "RW" is stuck at GND File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/helloworld.v Line: 3
 Info (286030): Timing-Driven Synthesis is running
+Info (17049): 1 registers lost all their fanouts during netlist optimizations.
+Info (17016): Found the following redundant logic cells in design
+    Info (17048): Logic cell "lpm_divide:Mod4|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_a4f:divider|add_sub_7_result_int[0]~0" File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/alt_u_div_a4f.tdf Line: 62
+    Info (17048): Logic cell "lpm_divide:Mod4|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_a4f:divider|add_sub_6_result_int[0]~10" File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/alt_u_div_a4f.tdf Line: 57
+    Info (17048): Logic cell "lpm_divide:Mod1|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_a4f:divider|add_sub_6_result_int[0]~10" File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/alt_u_div_a4f.tdf Line: 57
+    Info (17048): Logic cell "lpm_divide:Mod1|lpm_divide_m9m:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_a4f:divider|add_sub_7_result_int[0]~10" File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/alt_u_div_a4f.tdf Line: 62
+    Info (17048): Logic cell "lpm_divide:Mod7|lpm_divide_5bm:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_87f:divider|add_sub_15_result_int[0]~0" File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/alt_u_div_87f.tdf Line: 62
+    Info (17048): Logic cell "lpm_divide:Mod7|lpm_divide_5bm:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_87f:divider|add_sub_12_result_int[0]~10" File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/alt_u_div_87f.tdf Line: 47
+    Info (17048): Logic cell "lpm_divide:Mod7|lpm_divide_5bm:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_87f:divider|add_sub_13_result_int[0]~10" File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/alt_u_div_87f.tdf Line: 52
+    Info (17048): Logic cell "lpm_divide:Mod7|lpm_divide_5bm:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_87f:divider|add_sub_14_result_int[0]~10" File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/alt_u_div_87f.tdf Line: 57
+    Info (17048): Logic cell "lpm_divide:Mod9|lpm_divide_5bm:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_87f:divider|add_sub_15_result_int[0]~0" File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/alt_u_div_87f.tdf Line: 62
+    Info (17048): Logic cell "lpm_divide:Mod8|lpm_divide_5bm:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_87f:divider|add_sub_15_result_int[0]~0" File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/alt_u_div_87f.tdf Line: 62
+    Info (17048): Logic cell "lpm_divide:Mod8|lpm_divide_5bm:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_87f:divider|add_sub_9_result_int[0]~10" File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/alt_u_div_87f.tdf Line: 102
+    Info (17048): Logic cell "lpm_divide:Mod8|lpm_divide_5bm:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_87f:divider|add_sub_10_result_int[0]~10" File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/alt_u_div_87f.tdf Line: 37
+    Info (17048): Logic cell "lpm_divide:Mod8|lpm_divide_5bm:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_87f:divider|add_sub_11_result_int[0]~10" File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/alt_u_div_87f.tdf Line: 42
+    Info (17048): Logic cell "lpm_divide:Mod8|lpm_divide_5bm:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_87f:divider|add_sub_12_result_int[0]~10" File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/alt_u_div_87f.tdf Line: 47
+    Info (17048): Logic cell "lpm_divide:Mod8|lpm_divide_5bm:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_87f:divider|add_sub_13_result_int[0]~10" File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/alt_u_div_87f.tdf Line: 52
+    Info (17048): Logic cell "lpm_divide:Mod8|lpm_divide_5bm:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_87f:divider|add_sub_14_result_int[0]~10" File: D:/Users/mhms/Downloads/quartus_folder-20230910T131122Z-001/quartus_folder/db/alt_u_div_87f.tdf Line: 57
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 32 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "saida[0]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 2
-    Warning (15610): No output dependent on input pin "saida[1]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 2
-    Warning (15610): No output dependent on input pin "saida[2]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 2
-    Warning (15610): No output dependent on input pin "saida[3]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 2
-    Warning (15610): No output dependent on input pin "saida[4]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 2
-    Warning (15610): No output dependent on input pin "saida[5]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 2
-    Warning (15610): No output dependent on input pin "saida[6]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 2
-    Warning (15610): No output dependent on input pin "saida[7]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 2
-    Warning (15610): No output dependent on input pin "saida[8]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 2
-    Warning (15610): No output dependent on input pin "saida[9]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 2
-    Warning (15610): No output dependent on input pin "saida[10]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 2
-    Warning (15610): No output dependent on input pin "saida[11]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 2
-    Warning (15610): No output dependent on input pin "saida[12]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 2
-    Warning (15610): No output dependent on input pin "saida[13]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 2
-    Warning (15610): No output dependent on input pin "saida[14]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 2
-    Warning (15610): No output dependent on input pin "saida[15]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 2
-    Warning (15610): No output dependent on input pin "a[0]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 4
-    Warning (15610): No output dependent on input pin "a[1]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 4
-    Warning (15610): No output dependent on input pin "a[2]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 4
-    Warning (15610): No output dependent on input pin "a[3]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 4
-    Warning (15610): No output dependent on input pin "a[4]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 4
-    Warning (15610): No output dependent on input pin "a[5]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 4
-    Warning (15610): No output dependent on input pin "a[6]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 4
-    Warning (15610): No output dependent on input pin "a[7]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 4
-    Warning (15610): No output dependent on input pin "b[0]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 6
-    Warning (15610): No output dependent on input pin "b[1]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 6
-    Warning (15610): No output dependent on input pin "b[2]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 6
-    Warning (15610): No output dependent on input pin "b[3]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 6
-    Warning (15610): No output dependent on input pin "b[4]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 6
-    Warning (15610): No output dependent on input pin "b[5]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 6
-    Warning (15610): No output dependent on input pin "b[6]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 6
-    Warning (15610): No output dependent on input pin "b[7]" File: C:/Users/natha/Desktop/quartus_folder/ULA_LCD.v Line: 6
-Info (21057): Implemented 96 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 38 input pins
-    Info (21059): Implemented 11 output pins
-    Info (21061): Implemented 47 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 146 warnings
-    Info: Peak virtual memory: 4753 megabytes
-    Info: Processing ended: Fri Sep 08 16:30:10 2023
-    Info: Elapsed time: 00:00:39
-    Info: Total CPU time (on all processors): 00:00:31
+Info (21057): Implemented 1752 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 23 input pins
+    Info (21059): Implemented 12 output pins
+    Info (21061): Implemented 1716 logic cells
+    Info (21062): Implemented 1 DSP elements
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 22 warnings
+    Info: Peak virtual memory: 4878 megabytes
+    Info: Processing ended: Sun Sep 10 16:36:05 2023
+    Info: Elapsed time: 00:00:13
+    Info: Total CPU time (on all processors): 00:00:21
 
 
